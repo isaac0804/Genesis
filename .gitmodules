@@ -1,0 +1,3 @@
+[submodule "Genesis/thirdparty/spdlog"]
+	path = Genesis/thirdparty/spdlog
+	url = https://github.com/gabime/spdlog.git

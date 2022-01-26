@@ -11,12 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Genesis\Log.h" />
     <ClInclude Include="src\Genesis.h" />
     <ClInclude Include="src\Genesis\Application.h" />
     <ClInclude Include="src\Genesis\Core.h" />
     <ClInclude Include="src\Genesis\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Genesis\Log.cpp" />
     <ClCompile Include="src\Genesis\Application.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -70,6 +72,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GS_PLATFORM_WINDOWS; GS_BUILD_DLL;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Genesis\thirdparty\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -84,6 +87,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GS_PLATFORM_WINDOWS;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Genesis\thirdparty\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
