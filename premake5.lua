@@ -20,6 +20,7 @@ project "Genesis"
 
 	includedirs 
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/thirdparty/spdlog/include"
 	}
 
