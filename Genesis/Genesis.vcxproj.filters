@@ -34,6 +34,7 @@
     <ClInclude Include="src\Genesis\Log.h">
       <Filter>Genesis</Filter>
     </ClInclude>
+    <ClInclude Include="src\gspch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Genesis\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Genesis\Log.cpp">
       <Filter>Genesis</Filter>
     </ClCompile>
+    <ClCompile Include="src\gspch.cpp" />
   </ItemGroup>
 </Project>

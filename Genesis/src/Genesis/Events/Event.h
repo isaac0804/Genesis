@@ -2,9 +2,6 @@
 
 #include "Genesis/Core.h"
 
-#include <cstring>
-#include <functional>
-
 namespace Genesis {
 
 	enum class EventType

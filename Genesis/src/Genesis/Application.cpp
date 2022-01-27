@@ -1,3 +1,4 @@
+#include "gspch.h"
 #include "Application.h"
 
 #include "Genesis/Events/ApplicationEvent.h"
