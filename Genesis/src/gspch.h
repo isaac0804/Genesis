@@ -12,6 +12,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Genesis/Log.h"
 
 #ifdef  GS_PLATFORM_WINDOWS
 	#include <Windows.h>

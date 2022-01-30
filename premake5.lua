@@ -3,6 +3,10 @@ workspace "Genesis"
 	configurations {"Debug", "Release", "Dist"}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+IncludeDir = {}
+IncludeDir["GLFW"] = "Genesis/thirdparty/GLFW/include"
+
+include "Genesis/thirdparty/GLFW"
 
 project "Genesis"
 	location "Genesis"
@@ -24,7 +28,14 @@ project "Genesis"
 	includedirs 
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/thirdparty/spdlog/include"
+		"%{prj.name}/thirdparty/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+	
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
