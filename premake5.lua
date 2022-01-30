@@ -5,8 +5,10 @@ workspace "Genesis"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Genesis/thirdparty/GLFW/include"
+IncludeDir["Glad"] = "Genesis/thirdparty/GLAD/include"
 
 include "Genesis/thirdparty/GLFW"
+include "Genesis/thirdparty/Glad"
 
 project "Genesis"
 	location "Genesis"
@@ -29,12 +31,14 @@ project "Genesis"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/thirdparty/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 	
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -46,7 +50,8 @@ project "Genesis"
 		defines 
 		{
 			"GS_PLATFORM_WINDOWS",
-			"GS_BUILD_DLL"
+			"GS_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
