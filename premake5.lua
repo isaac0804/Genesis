@@ -97,12 +97,11 @@ project "Sandbox"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
-		"%{prj.name}/thirdparty/glm/glm/**.hpp",
-		"%{prj.name}/thirdparty/glm/glm/**.inl"
 	}
 
 	includedirs
 	{
+		"Genesis/thirdparty",
 		"Genesis/thirdparty/spdlog/include",
 		"Genesis/src",
 		"%{IncludeDir.glm}"
