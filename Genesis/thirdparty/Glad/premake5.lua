@@ -1,7 +1,7 @@
 project "Glad"
 	kind "StaticLib"
 	language "C"
-	staticruntime "off"
+	staticruntime "On"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -29,4 +29,4 @@ project "Glad"
 	filter "configurations:Release"
 		runtime "Release"
 		optimize "on"
-		buildoptions "/MT"
+		--buildoptions "/MT"

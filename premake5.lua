@@ -18,15 +18,21 @@ group ""
 
 project "Genesis"
 	location "Genesis"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "Off"
+	cppdialect "C++17"
+	staticruntime "On"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	pchheader "gspch.h"
 	pchsource "Genesis/src/gspch.cpp"
+
+	defines 
+	{
+		"_CRT_SECURE_NO_WARNINGS"
+	}
 
 	files 
 	{
@@ -53,7 +59,6 @@ project "Genesis"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines 
@@ -61,12 +66,6 @@ project "Genesis"
 			"GS_PLATFORM_WINDOWS",
 			"GS_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
-		}
-
-		postbuildcommands
-		{
-			--("{MKDIR} ../bin/" .. outputdir .. "/Sandbox"),
-			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
@@ -88,7 +87,8 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "Off"
+	cppdialect "C++17"
+	staticruntime "On"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
