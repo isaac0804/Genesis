@@ -1,6 +1,7 @@
 workspace "Genesis"
 	architecture "x64"
 	configurations {"Debug", "Release", "Dist"}
+	startproject "Sandbox"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
@@ -8,14 +9,17 @@ IncludeDir["GLFW"] = "Genesis/thirdparty/GLFW/include"
 IncludeDir["Glad"] = "Genesis/thirdparty/GLAD/include"
 IncludeDir["ImGui"] = "Genesis/thirdparty/ImGui"
 
-include "Genesis/thirdparty/GLFW"
-include "Genesis/thirdparty/Glad"
-include "Genesis/thirdparty/ImGui"
+group "Dependencies"
+	include "Genesis/thirdparty/GLFW"
+	include "Genesis/thirdparty/Glad"
+	include "Genesis/thirdparty/ImGui"
+group ""
 
 project "Genesis"
 	location "Genesis"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -48,7 +52,6 @@ project "Genesis"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines 
@@ -60,29 +63,30 @@ project "Genesis"
 
 		postbuildcommands
 		{
-			("{MKDIR} ../bin/" .. outputdir .. "/Sandbox"),
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			--("{MKDIR} ../bin/" .. outputdir .. "/Sandbox"),
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
 		defines "GS_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "GS_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "GS_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -106,7 +110,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines 
@@ -116,15 +119,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "GS_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "GS_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "GS_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
