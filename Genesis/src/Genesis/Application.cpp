@@ -1,7 +1,6 @@
 #include "gspch.h"
 #include "Application.h"
 
-#include "Genesis/Events/ApplicationEvent.h"
 #include "Genesis/Log.h"
 
 #include <glad/glad.h>

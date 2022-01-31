@@ -10,3 +10,6 @@
 	url = https://github.com/ocornut/imgui.git
 	ignore = dirty
 
+[submodule "Genesis/thirdparty/glm"]
+	path = Genesis/thirdparty/glm
+	url = https://github.com/g-truc/glm.git
