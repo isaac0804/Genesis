@@ -159,9 +159,11 @@
     <ClInclude Include="src\Genesis\Events\MouseEvent.h" />
     <ClInclude Include="src\Genesis\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Genesis\Input.h" />
+    <ClInclude Include="src\Genesis\KeyCodes.h" />
     <ClInclude Include="src\Genesis\Layer.h" />
     <ClInclude Include="src\Genesis\LayerStack.h" />
     <ClInclude Include="src\Genesis\Log.h" />
+    <ClInclude Include="src\Genesis\MouseButtonCodes.h" />
     <ClInclude Include="src\Genesis\Window.h" />
     <ClInclude Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platforms\OpenGL\imgui_impl_opengl3_loader.h" />

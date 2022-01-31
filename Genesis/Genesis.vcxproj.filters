@@ -70,6 +70,8 @@
     <ClInclude Include="src\gspch.h" />
     <ClInclude Include="src\Platforms\Windows\WindowsInput.h" />
     <ClInclude Include="src\Genesis\Input.h" />
+    <ClInclude Include="src\Genesis\KeyCodes.h" />
+    <ClInclude Include="src\Genesis\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Genesis\Application.cpp">

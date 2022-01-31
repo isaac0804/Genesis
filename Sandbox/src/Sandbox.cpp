@@ -9,11 +9,16 @@ public:
 	void OnUpdate() override
 	{
 		//GS_INFO("ExampleLayer::OnUpdate");
+		
+		if (Genesis::Input::IsKeyPressed(GS_KEY_TAB))
+		{
+			GS_TRACE("Tab Key is Pressed!");
+		}
 	}
 
 	void OnEvent(Genesis::Event& event) override
 	{
-		GS_TRACE("{0}", event);
+		//GS_TRACE("{0}", event);
 	}
 };
 

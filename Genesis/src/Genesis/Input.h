@@ -8,7 +8,7 @@ namespace Genesis {
 	class GENESIS_API Input
 	{
 	public:
-		inline static bool IsKeyPressed(int keycode) { return s_Instance->IsKeyPressed(keycode); }
+		inline static bool IsKeyPressed(int keycode) { return s_Instance->IsKeyPressedImpl(keycode); }
 
 		inline static bool IsMouseButton(int button) { return s_Instance->IsMouseButtonPressedImpl(button); }
 		inline static std::pair<double, double> GetMousePosition() { return s_Instance->GetMousePositionImpl(); }
