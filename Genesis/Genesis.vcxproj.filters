@@ -7,8 +7,14 @@
     <Filter Include="Genesis\Events">
       <UniqueIdentifier>{D72FACF6-C3FD-9FFC-AC91-102398FE7B61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Genesis\ImGui">
+      <UniqueIdentifier>{BDC6B4E8-2987-301F-F2C1-799C5E4175FB}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platforms">
       <UniqueIdentifier>{DDACA145-4917-56BC-9255-0762FEFE3311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\OpenGL">
+      <UniqueIdentifier>{719BB998-5D94-D8EA-86C6-BD6F721EB8F6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platforms\Windows">
       <UniqueIdentifier>{17E40808-83FA-069E-CC71-92BF38C7D725}</UniqueIdentifier>
@@ -37,6 +43,9 @@
     <ClInclude Include="src\Genesis\Events\MouseEvent.h">
       <Filter>Genesis\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Genesis\ImGui\ImGuiLayer.h">
+      <Filter>Genesis\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Genesis\Layer.h">
       <Filter>Genesis</Filter>
     </ClInclude>
@@ -49,6 +58,12 @@
     <ClInclude Include="src\Genesis\Window.h">
       <Filter>Genesis</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platforms\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platforms\OpenGL\imgui_impl_opengl3_loader.h">
+      <Filter>Platforms\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platforms\Windows\WindowsWindow.h">
       <Filter>Platforms\Windows</Filter>
     </ClInclude>
@@ -58,6 +73,9 @@
     <ClCompile Include="src\Genesis\Application.cpp">
       <Filter>Genesis</Filter>
     </ClCompile>
+    <ClCompile Include="src\Genesis\ImGui\ImGuiLayer.cpp">
+      <Filter>Genesis\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Genesis\Layer.cpp">
       <Filter>Genesis</Filter>
     </ClCompile>
@@ -66,6 +84,9 @@
     </ClCompile>
     <ClCompile Include="src\Genesis\Log.cpp">
       <Filter>Genesis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platforms\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platforms\Windows\WindowsWindow.cpp">
       <Filter>Platforms\Windows</Filter>
