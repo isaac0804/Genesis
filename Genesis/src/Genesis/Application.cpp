@@ -2,9 +2,8 @@
 #include "Application.h"
 #include "Input.h"
 #include "Genesis/Log.h"
-//#include "Renderer/Buffer.h"
+#include "Genesis/Renderer/Renderer.h"
 
-#include <glad/glad.h>
 
 
 namespace Genesis {
@@ -167,16 +166,22 @@ namespace Genesis {
 	{
 		while (m_Running)
 		{
-			glClearColor(0.1f, 0.1f, 0.2f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
+			RenderCommand::SetClearColor({0.1f, 0.1f, 0.2f, 1});
+			RenderCommand::Clear();
+
+			Renderer::BeginScene();
 
 			m_SquareShader->Bind();
-			m_SquareVertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_SquareIndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::Submit(m_SquareVertexArray);
+			//m_SquareVertexArray->Bind();
+			//glDrawElements(GL_TRIANGLES, m_SquareIndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			m_Shader->Bind();
-			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::Submit(m_VertexArray);
+			//m_VertexArray->Bind();
+			//glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
+
+			Renderer::EndScene();
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
