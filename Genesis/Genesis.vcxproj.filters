@@ -10,8 +10,14 @@
     <Filter Include="Genesis\ImGui">
       <UniqueIdentifier>{BDC6B4E8-2987-301F-F2C1-799C5E4175FB}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Genesis\Renderer">
+      <UniqueIdentifier>{59907249-4589-919B-6EBB-76205A1371A7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platforms">
       <UniqueIdentifier>{DDACA145-4917-56BC-9255-0762FEFE3311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\OpenGL">
+      <UniqueIdentifier>{719BB998-5D94-D8EA-86C6-BD6F721EB8F6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platforms\Windows">
       <UniqueIdentifier>{17E40808-83FA-069E-CC71-92BF38C7D725}</UniqueIdentifier>
@@ -61,8 +67,14 @@
     <ClInclude Include="src\Genesis\MouseButtonCodes.h">
       <Filter>Genesis</Filter>
     </ClInclude>
+    <ClInclude Include="src\Genesis\Renderer\GraphicsContext.h">
+      <Filter>Genesis\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Genesis\Window.h">
       <Filter>Genesis</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLContext.h">
+      <Filter>Platforms\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platforms\Windows\WindowsInput.h">
       <Filter>Platforms\Windows</Filter>
@@ -71,8 +83,6 @@
       <Filter>Platforms\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\gspch.h" />
-    <ClInclude Include="src\Genesis\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Platforms\OpenGL\OpenGLContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Genesis\Application.cpp">
@@ -93,6 +103,9 @@
     <ClCompile Include="src\Genesis\Log.cpp">
       <Filter>Genesis</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLContext.cpp">
+      <Filter>Platforms\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platforms\Windows\WindowsInput.cpp">
       <Filter>Platforms\Windows</Filter>
     </ClCompile>
@@ -100,6 +113,5 @@
       <Filter>Platforms\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\gspch.cpp" />
-    <ClCompile Include="src\Platforms\OpenGL\OpenGLContext.cpp" />
   </ItemGroup>
 </Project>

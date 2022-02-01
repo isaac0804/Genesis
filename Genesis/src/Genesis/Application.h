@@ -29,10 +29,14 @@ namespace Genesis {
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
+		// Window and Layers
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+
+		// Rendering 
+		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
 	private:
 		static Application* s_Instance;
 	};

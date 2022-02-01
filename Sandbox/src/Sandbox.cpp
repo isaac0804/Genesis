@@ -10,7 +10,6 @@ public:
 
 	void OnUpdate() override
 	{
-		GS_INFO("ExampleLayer::OnUpdate");
 	}
 
 	virtual void OnImGuiRender() override
@@ -22,7 +21,6 @@ public:
 
 	void OnEvent(Genesis::Event& event) override
 	{
-		//GS_TRACE("{0}", event);
 	}
 };
 
