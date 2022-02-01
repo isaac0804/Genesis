@@ -4,7 +4,8 @@
 #include "Genesis/Events/ApplicationEvent.h"
 #include "Genesis/Events/KeyEvent.h"
 #include "Genesis/Events/MouseEvent.h"
-#include <glad/glad.h>
+
+#include "Platforms/OpenGL/OpenGLContext.h"
 
 namespace Genesis {
 
@@ -42,14 +43,14 @@ namespace Genesis {
 		{
 			int success = glfwInit();
 			GS_CORE_ASSERT(success, "Could not initialize GLFW!");
+
 			s_GLFWInitialized = true;
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
+		m_Context = new OpenGLContext(m_Window);
 
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		GS_CORE_ASSERT(status, "Failed to initialize Glad!");
+		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
@@ -149,7 +150,7 @@ namespace Genesis {
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)
