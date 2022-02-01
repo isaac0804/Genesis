@@ -87,6 +87,8 @@
     <ClInclude Include="src\Genesis\Renderer\Buffer.h" />
     <ClInclude Include="src\Platforms\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Genesis\Renderer\Renderer.h" />
+    <ClInclude Include="src\Genesis\Renderer\VertexArray.h" />
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLVertexArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Genesis\Application.cpp">
@@ -121,5 +123,7 @@
     <ClCompile Include="src\Genesis\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Platforms\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Genesis\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Genesis\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLVertexArray.cpp" />
   </ItemGroup>
 </Project>

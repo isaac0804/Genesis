@@ -66,6 +66,8 @@ namespace Genesis {
 		}
 	};
 
+
+	// Vertex Buffer Layout
 	class BufferLayout
 	{
 	public:
@@ -101,6 +103,8 @@ namespace Genesis {
 		uint32_t m_Stride = 0;
 	};
 
+
+	// Vertex Buffer 
 	class VertexBuffer
 	{
 	public:
@@ -115,6 +119,8 @@ namespace Genesis {
 		static VertexBuffer* Create(float* vertices, uint32_t size);
 	};
 
+
+	// Index Buffer 
 	class IndexBuffer
 	{
 	public:

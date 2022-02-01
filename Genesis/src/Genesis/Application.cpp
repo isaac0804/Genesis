@@ -11,24 +11,6 @@ namespace Genesis {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
-	static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type)
-	{
-		switch (type)
-		{
-			case ShaderDataType::Float:  return GL_FLOAT;
-			case ShaderDataType::Float2: return GL_FLOAT;
-			case ShaderDataType::Float3: return GL_FLOAT;
-			case ShaderDataType::Float4: return GL_FLOAT;
-			case ShaderDataType::Int:    return GL_INT;
-			case ShaderDataType::Int2:   return GL_INT;
-			case ShaderDataType::Int3:   return GL_INT;
-			case ShaderDataType::Int4:   return GL_INT;
-			case ShaderDataType::Mat3:   return GL_FLOAT_MAT3;
-			case ShaderDataType::Mat4:   return GL_FLOAT_MAT4;
-			case ShaderDataType::Bool:   return GL_BOOL;
-		}
-	}
-
 	Application* Application::s_Instance = nullptr;
 
 	Application::Application()
@@ -42,54 +24,30 @@ namespace Genesis {
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 
-		// Vertex Array
-		glGenVertexArrays(1, &m_VertexArray);
-		glBindVertexArray(m_VertexArray);
+		// Vertex Array ///////////////////////////////////////////////////////
+		m_VertexArray.reset(VertexArray::Create());
 
-		// Vertex Buffer
+		// Vertex Buffer //////////////////////////////////////////////////////
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.2f, 0.8f, 0.8f, 1.0f,
 			 0.5f, -0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f,
 		 	 0.0f,  0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
 		};
 		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
-
 		// Define Buffer Layout 
-		{
-			BufferLayout layout = {
-				{ ShaderDataType::Float3, "a_Position"},
-				{ ShaderDataType::Float4, "a_Color" }
-			};
+		BufferLayout layout = {
+			{ ShaderDataType::Float3, "a_Position"},
+			{ ShaderDataType::Float4, "a_Color" }
+		};
+		m_VertexBuffer->SetLayout(layout);
+		m_VertexArray->AddVertexBuffer(m_VertexBuffer);
 
-			m_VertexBuffer->SetLayout(layout);
-		}
-
-		uint32_t index = 0;
-		const auto& layout = m_VertexBuffer->GetLayout();
-		for (const auto& element : layout)
-		{
-			glEnableVertexAttribArray(index);
-			glVertexAttribPointer(
-				index,
-				element.GetComponentCount(),
-				ShaderDataTypeToOpenGLBaseType(element.Type),
-				element.Normalized ? GL_TRUE : GL_FALSE,
-				layout.GetStride(),
-				(const void*)element.Offset
-			);
-			index++;
-		}
-
-		//glEnableVertexAttribArray(0);
-		//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
-
-		// Index Buffer
+		// Index Buffer ///////////////////////////////////////////////////////
 		unsigned int indices[3] = { 0, 1, 2 };
 		m_IndexBuffer.reset(IndexBuffer::Create(indices, std::size(indices)));
-		// should i bind again?
-		//m_IndexBuffer->Bind();
+		m_VertexArray->SetIndexBuffer(m_IndexBuffer);
 
-		// Shader
+		// Shader /////////////////////////////////////////////////////////////
 		// Vertex Shader
 		std::string vertexSrc = R"(
 			#version 330 core
@@ -170,7 +128,7 @@ namespace Genesis {
 
 			m_Shader->Bind();
 
-			glBindVertexArray(m_VertexArray);
+			m_VertexArray->Bind();
 			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			for (Layer* layer : m_LayerStack)
