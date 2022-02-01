@@ -83,6 +83,7 @@
       <Filter>Platforms\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\gspch.h" />
+    <ClInclude Include="src\Genesis\Renderer\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Genesis\Application.cpp">
@@ -113,5 +114,6 @@
       <Filter>Platforms\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\gspch.cpp" />
+    <ClCompile Include="src\Genesis\Renderer\Shader.cpp" />
   </ItemGroup>
 </Project>
