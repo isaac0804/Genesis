@@ -84,6 +84,9 @@
     </ClInclude>
     <ClInclude Include="src\gspch.h" />
     <ClInclude Include="src\Genesis\Renderer\Shader.h" />
+    <ClInclude Include="src\Genesis\Renderer\Buffer.h" />
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Genesis\Renderer\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Genesis\Application.cpp">
@@ -115,5 +118,8 @@
     </ClCompile>
     <ClCompile Include="src\gspch.cpp" />
     <ClCompile Include="src\Genesis\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Genesis\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Genesis\Renderer\Renderer.cpp" />
   </ItemGroup>
 </Project>

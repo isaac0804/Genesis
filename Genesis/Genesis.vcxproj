@@ -155,9 +155,12 @@
     <ClInclude Include="src\Genesis\LayerStack.h" />
     <ClInclude Include="src\Genesis\Log.h" />
     <ClInclude Include="src\Genesis\MouseButtonCodes.h" />
+    <ClInclude Include="src\Genesis\Renderer\Buffer.h" />
     <ClInclude Include="src\Genesis\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Genesis\Renderer\Renderer.h" />
     <ClInclude Include="src\Genesis\Renderer\Shader.h" />
     <ClInclude Include="src\Genesis\Window.h" />
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platforms\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platforms\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platforms\Windows\WindowsWindow.h" />
@@ -170,7 +173,10 @@
     <ClCompile Include="src\Genesis\Layer.cpp" />
     <ClCompile Include="src\Genesis\LayerStack.cpp" />
     <ClCompile Include="src\Genesis\Log.cpp" />
+    <ClCompile Include="src\Genesis\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Genesis\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Genesis\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platforms\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platforms\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platforms\Windows\WindowsWindow.cpp" />
